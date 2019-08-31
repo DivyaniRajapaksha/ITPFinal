@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 body{
 	margin:0;
 	
-font-family: 'Roboto', sans-serif;
+	font-family: "Poppins", sans-serif;
 	background: #fff;  
 }
 body a{
@@ -21,7 +21,7 @@ body a{
 }
 h1,h2,h3,h4,h5,h6{
 	margin:0;
-font-family: 'Josefin Sans', sans-serif;
+	font-family: "Poppins", sans-serif;
 
 }
 p{
@@ -55,7 +55,7 @@ h1 a.navbar-brand {
     color: #ff0a80 !important;
     text-transform: capitalize;
     letter-spacing: 1px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 nav.navbar.navbar-default.navbar-fixed-top {
@@ -1031,7 +1031,7 @@ span {
 .callbacks_tabs a:after {
     content: "\f111";
     font-size: 0;
-    font-family: FontAwesome;
+    font-family: "Poppins", sans-serif;
     visibility: visible;
     display: block;
     height:6px;
@@ -1220,7 +1220,7 @@ span {
     border: 1px solid #fff;
     font-weight: 600;
     letter-spacing: 4px;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 .modal-body p {
     color: #999;
@@ -2029,7 +2029,7 @@ color: #FFFFFF;
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1;
@@ -2086,7 +2086,7 @@ h3.agileits-icons-title {
     position: relative;
     top: 1px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1;
@@ -3844,12 +3844,12 @@ nav.navbar.navbar-default.navbar-fixed-top {
 body {
 	background:url('../images/1.jpg') no-repeat 0px 0px;
 	background-size: cover;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Poppins", sans-serif;
 	background-attachment: fixed;
     background-position: center;
 }
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Poppins", sans-serif;
 	
 }
 h1{
