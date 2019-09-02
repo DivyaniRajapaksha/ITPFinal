@@ -1,5 +1,7 @@
 
+
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 
 <head>
@@ -14,8 +16,8 @@
     </style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
     IBACK Events Dashboard
   </title>
@@ -23,11 +25,11 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- Nucleo Icons -->
-  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link href="../assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="assets/demo/demo.css" rel="stylesheet" />
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
   
   <style>
 .footer {
@@ -38,6 +40,13 @@
   text-align: center;
 }
 </style>
+
+
+
+
+
+
+
 </head>
 
 <body class="">
@@ -319,459 +328,522 @@
               </div>
             </div>
 
-            <!-- Chart-->
+          <!-- Chart-->
             <div class="content">
-              <div class="row">
-                <div class="col-12">
-                  
-                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                      <button class="btn btn-danger" id="req" onclick="showReq()">Requests</button>
-                      <button class="btn btn-primary" id="pend"  onclick="showPend()">Pending</button>
-                      <button class="btn btn-primary" id="confirm"  onclick="showCon()">Confirm</button>
+                    <div class="row">
+                      <div class="col-12">
+                        
+                          <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                             <button class="btn btn-danger" id="req" >Requests</button>
+                              <!-- button class="btn btn-danger" id="req" onclick="showReq()">Requests</button-->
+                              <button class="btn btn-primary" id="pend"  >Pending</button>
+                            <!--button class="btn btn-primary" id="pend"  onclick="showPend()">Pending</button-->
+                            <!-- button class="btn btn-primary" id="confirm"  onclick="showCon()">Confirm</button-->
+                            <button class="btn btn-primary" id="confirm" >Confirm</button>
+                          </div>
+                       
+                      </div>
                     </div>
-                 
+	<c:choose>
+           <!--Customer Table-->
+          
+            <div class="content">
+                    <div class="row" id="requestTable">
+                      <div class="col-md-12">
+                        <div class="card" style="display: none;">
+                          <div class="card-header" id="hed-t">
+                            <h4 class="card-title"> Request Events</h4>
+                          </div>
+                           <c:when test="${mode=='eventManagement' }">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table tablesorter " id="reqtbl">
+                                <thead class=" text-primary">
+                                  <tr>
+                                    <th>
+                                      id
+                        				</th>
+                                    <th>
+                                      ename
+                                    </th>
+                                    <th>
+                                      elocation
+                                    </th>
+                                     <th>
+                                     ephoneNo
+                                    </th>
+                                     <th>
+                                     edate
+                                    </th>
+                                     <th>
+                                      etime
+                                   	</th>
+                                    <th class="text-center">
+                                      etype
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                               <!-- c:forEach var="ev" items="${ev }">
+                                  <tr>
+                                    <td>${ev.id}</td>
+                                    <td>${ev.ename}</td>
+                                    <td> ${ev.elocation}</td>
+                                    <td>${ev.ephoneNo}</td>
+                                     <td> ${ev.edate}</td>
+                                    <td> ${ev.etime}</td>
+                                     <td class="text-center">${ev.etype}</td>
+                                       
+                                     </tr>
+                                   </c:forEach-->
+                                       
+                                    
+                              
+                                </tbody>         
+                                      
+                               </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+					</c:when>
+                      <!--Event Table-->
+	</c:choose>       
+                                    
+                                     
+                                    
+                                 
+                               
+      
+           </div>
+
+
+           <div class="row" id="pendingTable" hidden="true">
+            <div class="col-md-12">
+              <div class="card ">
+                <div class="card-header">
+                  <h4 class="card-title"> Pending Events</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table tablesorter " id="">
+                      <thead class=" text-primary">
+                        <tr>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                            Country
+                          </th>
+                          <th>
+                            City
+                          </th>
+                          <th class="text-center">
+                            Salary
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            Dakota Rice
+                          </td>
+                          <td>
+                            Niger
+                          </td>
+                          <td>
+                            Oud-Turnhout
+                          </td>
+                          <td class="text-center">
+                            $36,738
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Minerva Hooper
+                          </td>
+                          <td>
+                            Curaçao
+                          </td>
+                          <td>
+                            Sinaai-Waas
+                          </td>
+                          <td class="text-center">
+                            $23,789
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Sage Rodriguez
+                          </td>
+                          <td>
+                            Netherlands
+                          </td>
+                          <td>
+                            Baileux
+                          </td>
+                          <td class="text-center">
+                            $56,142
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Philip Chaney
+                          </td>
+                          <td>
+                            Korea, South
+                          </td>
+                          <td>
+                            Overland Park
+                          </td>
+                          <td class="text-center">
+                            $38,735
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Doris Greene
+                          </td>
+                          <td>
+                            Malawi
+                          </td>
+                          <td>
+                            Feldkirchen in Kärnten
+                          </td>
+                          <td class="text-center">
+                            $63,542
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Mason Porter
+                          </td>
+                          <td>
+                            Chile
+                          </td>
+                          <td>
+                            Gloucester
+                          </td>
+                          <td class="text-center">
+                            $78,615
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Jon Porter
+                          </td>
+                          <td>
+                            Portugal
+                          </td>
+                          <td>
+                            Gloucester
+                          </td>
+                          <td class="text-center">
+                            $98,615
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
+            </div>
+                      <!--Event Table-->
 
-                    <!--Customer Table-->
-                    <div class="content">
-                      <div class="row" id="requestTable">
-                        <div class="col-md-12">
-                          <div class="card ">
-                            <div class="card-header">
-                              <h4 class="card-title"> Request Events</h4>
-                            </div>
-                            <div class="card-body">
-                              <div class="table-responsive">
-                                <table class="table tablesorter " id="">
-                                  <thead class=" text-primary">
-                                    <tr>
-                                      <th>
-                                        Name
-                                      </th>
-                                      <th>
-                                        Country
-                                      </th>
-                                      <th>
-                                        City
-                                      </th>
-                                      <th class="text-center">
-                                        Salary
-                                      </th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td>
-                                        Dakota Rice
-                                      </td>
-                                      <td>
-                                        Niger
-                                      </td>
-                                      <td>
-                                        Oud-Turnhout
-                                      </td>
-                                      <td class="text-center">
-                                        $36,738
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        Minerva Hooper
-                                      </td>
-                                      <td>
-                                        Curaçao
-                                      </td>
-                                      <td>
-                                        Sinaai-Waas
-                                      </td>
-                                      <td class="text-center">
-                                        $23,789
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        Sage Rodriguez
-                                      </td>
-                                      <td>
-                                        Netherlands
-                                      </td>
-                                      <td>
-                                        Baileux
-                                      </td>
-                                      <td class="text-center">
-                                        $56,142
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        Philip Chaney
-                                      </td>
-                                      <td>
-                                        Korea, South
-                                      </td>
-                                      <td>
-                                        Overland Park
-                                      </td>
-                                      <td class="text-center">
-                                        $38,735
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        Doris Greene
-                                      </td>
-                                      <td>
-                                        Malawi
-                                      </td>
-                                      <td>
-                                        Feldkirchen in Kärnten
-                                      </td>
-                                      <td class="text-center">
-                                        $63,542
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        Mason Porter
-                                      </td>
-                                      <td>
-                                        Chile
-                                      </td>
-                                      <td>
-                                        Gloucester
-                                      </td>
-                                      <td class="text-center">
-                                        $78,615
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        Jon Porter
-                                      </td>
-                                      <td>
-                                        Portugal
-                                      </td>
-                                      <td>
-                                        Gloucester
-                                      </td>
-                                      <td class="text-center">
-                                        $98,615
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                      <div class="col-md-12">
+                            <div class="card  card-plain">
+                              <div class="card-header">
+                                <h4 class="card-title"> Table on Plain Background</h4>
+                                <p class="category"> Here is a subtitle for this table</p>
+                              </div>
+                              <div class="card-body">
+                                <div class="table-responsive">
+                                  <table class="table tablesorter " id="">
+                                    <thead class=" text-primary">
+                                      <tr>
+                                        <th>
+                                          Name
+                                        </th>
+                                        <th>
+                                          Country
+                                        </th>
+                                        <th>
+                                          City
+                                        </th>
+                                        <th class="text-center">
+                                          Salary
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>
+                                          Dakota Rice
+                                        </td>
+                                        <td>
+                                          Niger
+                                        </td>
+                                        <td>
+                                          Oud-Turnhout
+                                        </td>
+                                        <td class="text-center">
+                                          $36,738
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          Minerva Hooper
+                                        </td>
+                                        <td>
+                                          Curaçao
+                                        </td>
+                                        <td>
+                                          Sinaai-Waas
+                                        </td>
+                                        <td class="text-center">
+                                          $23,789
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          Sage Rodriguez
+                                        </td>
+                                        <td>
+                                          Netherlands
+                                        </td>
+                                        <td>
+                                          Baileux
+                                        </td>
+                                        <td class="text-center">
+                                          $56,142
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          Philip Chaney
+                                        </td>
+                                        <td>
+                                          Korea, South
+                                        </td>
+                                        <td>
+                                          Overland Park
+                                        </td>
+                                        <td class="text-center">
+                                          $38,735
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          Doris Greene
+                                        </td>
+                                        <td>
+                                          Malawi
+                                        </td>
+                                        <td>
+                                          Feldkirchen in Kärnten
+                                        </td>
+                                        <td class="text-center">
+                                          $63,542
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          Mason Porter
+                                        </td>
+                                        <td>
+                                          Chile
+                                        </td>
+                                        <td>
+                                          Gloucester
+                                        </td>
+                                        <td class="text-center">
+                                          $78,615
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                          Jon Porter
+                                        </td>
+                                        <td>
+                                          Portugal
+                                        </td>
+                                        <td>
+                                          Gloucester
+                                        </td>
+                                        <td class="text-center">
+                                          $98,615
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-  
-                        <!--Event Table-->
-  
-             </div>
-  
-  
-             <div class="row" id="pendingTable" hidden="true">
-              <div class="col-md-12">
-                <div class="card ">
-                  <div class="card-header">
-                    <h4 class="card-title"> Pending Events</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table tablesorter " id="">
-                        <thead class=" text-primary">
-                          <tr>
-                            <th>
-                              Name
-                            </th>
-                            <th>
-                              Country
-                            </th>
-                            <th>
-                              City
-                            </th>
-                            <th class="text-center">
-                              Salary
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              Dakota Rice
-                            </td>
-                            <td>
-                              Niger
-                            </td>
-                            <td>
-                              Oud-Turnhout
-                            </td>
-                            <td class="text-center">
-                              $36,738
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Minerva Hooper
-                            </td>
-                            <td>
-                              Curaçao
-                            </td>
-                            <td>
-                              Sinaai-Waas
-                            </td>
-                            <td class="text-center">
-                              $23,789
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Sage Rodriguez
-                            </td>
-                            <td>
-                              Netherlands
-                            </td>
-                            <td>
-                              Baileux
-                            </td>
-                            <td class="text-center">
-                              $56,142
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Philip Chaney
-                            </td>
-                            <td>
-                              Korea, South
-                            </td>
-                            <td>
-                              Overland Park
-                            </td>
-                            <td class="text-center">
-                              $38,735
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Doris Greene
-                            </td>
-                            <td>
-                              Malawi
-                            </td>
-                            <td>
-                              Feldkirchen in Kärnten
-                            </td>
-                            <td class="text-center">
-                              $63,542
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Mason Porter
-                            </td>
-                            <td>
-                              Chile
-                            </td>
-                            <td>
-                              Gloucester
-                            </td>
-                            <td class="text-center">
-                              $78,615
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Jon Porter
-                            </td>
-                            <td>
-                              Portugal
-                            </td>
-                            <td>
-                              Gloucester
-                            </td>
-                            <td class="text-center">
-                              $98,615
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-  
-              <!--Event Table-->
-  
-   </div> <div class="row" id="confirmTable" hidden="true"> 
-    <div class="col-md-12">
-      <div class="card ">
-        <div class="card-header">
-          <h4 class="card-title"> Confirmed Events</h4>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table tablesorter " id="">
-              <thead class=" text-primary">
-                <tr>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Country
-                  </th>
-                  <th>
-                    City
-                  </th>
-                  <th class="text-center">
-                    Salary
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td class="text-center">
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-center">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-center">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Philip Chaney
-                  </td>
-                  <td>
-                    Korea, South
-                  </td>
-                  <td>
-                    Overland Park
-                  </td>
-                  <td class="text-center">
-                    $38,735
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-center">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-center">
-                    $78,615
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Jon Porter
-                  </td>
-                  <td>
-                    Portugal
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-center">
-                    $98,615
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                      </div>
+
+                      <!--End of Event Table-->
+    </div>
+
+			 </div> <div class="row" id="confirmTable" hidden="true"> 
+  <div class="col-md-12">
+    <div class="card"  >
+      <div class="card-header">
+        <h4 class="card-title"> Confirmed Events</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  City
+                </th>
+                <th class="text-center">
+                  Salary
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td class="text-center">
+                  $36,738
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Minerva Hooper
+                </td>
+                <td>
+                  Curaçao
+                </td>
+                <td>
+                  Sinaai-Waas
+                </td>
+                <td class="text-center">
+                  $23,789
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Sage Rodriguez
+                </td>
+                <td>
+                  Netherlands
+                </td>
+                <td>
+                  Baileux
+                </td>
+                <td class="text-center">
+                  $56,142
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Philip Chaney
+                </td>
+                <td>
+                  Korea, South
+                </td>
+                <td>
+                  Overland Park
+                </td>
+                <td class="text-center">
+                  $38,735
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Doris Greene
+                </td>
+                <td>
+                  Malawi
+                </td>
+                <td>
+                  Feldkirchen in Kärnten
+                </td>
+                <td class="text-center">
+                  $63,542
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Mason Porter
+                </td>
+                <td>
+                  Chile
+                </td>
+                <td>
+                  Gloucester
+                </td>
+                <td class="text-center">
+                  $78,615
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jon Porter
+                </td>
+                <td>
+                  Portugal
+                </td>
+                <td>
+                  Gloucester
+                </td>
+                <td class="text-center">
+                  $98,615
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  
-    <!--Event Table-->
-  
+  </div>
+
+  <!--Event Table-->
+
+</div>
+
+
+     
+    </div>
   </div>
   
   
   
-  
-  
-             
-          </div>
-  
-                        <!--End of Event Table-->
-      </div>
-  
-  
-  
-  
-       
-      </div>
-    </div>
-  
  
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <!-- Place this tag in your head or just before your close body tag. -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
-  <script src="assets/js/plugins/chartjs.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="assets/demo/demo.js"></script>
+  <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -889,6 +961,7 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
+     
 
     });
   </script>
@@ -900,69 +973,148 @@
         application: "black-dashboard-free"
       });
   </script>
+  <!-- script starting -->
 
+ <script>
+       $( "#req" ).click(function() {
+    	      $("#req").removeClass("btn btn-primary");
+    	      $("#req").addClass("btn btn-danger");
+
+    	      $("#confirm").removeClass("btn btn-danger");
+    	      $("#confirm").addClass("btn btn-primary");
+
+    	      $("#pend").removeClass("btn btn-danger");
+    	      $("#pend").addClass("btn btn-primary");
+    	      $("h4.card-title").text("Request Events");
+        	  var tes="test";
+        	 jQuery.ajax({
+        	        type: "GET",
+        	        url: "http://localhost:8080/selectRequestEvents",
+        	        data: { "id": "getStatus" }
+        	    }).done(function(msg) {
+        	    	showUsers(msg)
+        	    });
+        	  
+        	  
+        	});
+       $( "#pend" ).click(function() {
+    	   $("#pend").removeClass("btn btn-primary");
+    	   $("#pend").addClass("btn btn-danger");
+
+    	   $("#req").removeClass("btn btn-danger");
+    	   $("#req").addClass("btn btn-primary");
+
+    	   $("#confirm").removeClass("btn btn-danger");
+    	   $("#confirm").addClass("btn btn-primary");
+    	   $("h4.card-title").text("Pending Events");
+     	  var tes="test";
+     	 jQuery.ajax({
+     	        type: "GET",
+     	        url: "http://localhost:8080/selectPendingEvent",
+     	        data: { "id": "getStatus" }
+     	    }).done(function(msg) {
+     	    	showUsers(msg)
+     	    });
+     	  
+     	  
+     	});
+       $( "#confirm" ).click(function() {
+    	   $("#confirm").removeClass("btn btn-primary");
+    	      $("#confirm").addClass("btn btn-danger");
+
+    	      $("#req").removeClass("btn btn-danger");
+    	      $("#req").addClass("btn btn-primary");
+
+    	      $("#pend").removeClass("btn btn-danger");
+    	      $("#pend").addClass("btn btn-primary");
+    	      $("h4.card-title").text("Confirmed Events");
+      	  var tes="test";
+      	 jQuery.ajax({
+      	        type: "GET",
+      	        url: "http://localhost:8080/selectConfirmedEvent",
+      	        data: { "id": "getStatus" }
+      	    }).done(function(msg) {
+      	    	showUsers(msg)
+      	    });
+      	  
+      	  
+      	});
+       function showUsers(msg) {    	   
+			var trHTML = '';
+			$.each(msg, function (i, item) {
+			    trHTML += '<tr><td>' + item.id + '</td><td>' + item.ename + '</td><td>' + item.elocation + '</td><td>' + item.ephoneNo +'</td><td>' + item.edate +'</td><td>' + item.etime + '</td><td>' + item.estatus +'</td></tr>';
+			});
+			$("#reqtbl tr").detach();
+			$('#reqtbl').append(trHTML);
+			$( ".card" ).show();
+       }
+        </script>
+<!-- script close -->
   <script>
+ 
+
   function showReq() {
       
-    $("#req").removeClass("btn btn-primary");
-    $("#req").addClass("btn btn-danger");
+      $("#req").removeClass("btn btn-primary");
+      $("#req").addClass("btn btn-danger");
 
-    $("#confirm").removeClass("btn btn-danger");
-    $("#confirm").addClass("btn btn-primary");
+      $("#confirm").removeClass("btn btn-danger");
+      $("#confirm").addClass("btn btn-primary");
 
-    $("#pend").removeClass("btn btn-danger");
-    $("#pend").addClass("btn btn-primary");
-
-
-        $('#requestTable').attr('hidden', false);
-
-        $('#confirmTable').attr('hidden', true);
-        $('#pendingTable').attr('hidden', true);
-}
-
-function showCon() {
-
-  $("#confirm").removeClass("btn btn-primary");
-    $("#confirm").addClass("btn btn-danger");
-
-    $("#req").removeClass("btn btn-danger");
-    $("#req").addClass("btn btn-primary");
-
-    $("#pend").removeClass("btn btn-danger");
-    $("#pend").addClass("btn btn-primary");
+      $("#pend").removeClass("btn btn-danger");
+      $("#pend").addClass("btn btn-primary");
 
 
-        $('#confirmTable').attr('hidden', false);
+          $('#requestTable').attr('hidden', false);
 
-        $('#requestTable').attr('hidden', true);
-        $('#pendingTable').attr('hidden', true);
-        
-        
-        
-        }
+          $('#confirmTable').attr('hidden', true);
+          $('#pendingTable').attr('hidden', true);
+  }
+
+  function showCon() {
+
+    $("#confirm").removeClass("btn btn-primary");
+      $("#confirm").addClass("btn btn-danger");
+
+      $("#req").removeClass("btn btn-danger");
+      $("#req").addClass("btn btn-primary");
+
+      $("#pend").removeClass("btn btn-danger");
+      $("#pend").addClass("btn btn-primary");
 
 
-function showPend() {
+          $('#confirmTable').attr('hidden', false);
+
+          $('#requestTable').attr('hidden', true);
+          $('#pendingTable').attr('hidden', true);
+          
+          
+          
+          }
+
+
+  function showPend() {
 
 $("#pend").removeClass("btn btn-primary");
-$("#pend").addClass("btn btn-danger");
+  $("#pend").addClass("btn btn-danger");
 
-$("#req").removeClass("btn btn-danger");
-$("#req").addClass("btn btn-primary");
+  $("#req").removeClass("btn btn-danger");
+  $("#req").addClass("btn btn-primary");
 
-$("#confirm").removeClass("btn btn-danger");
-$("#confirm").addClass("btn btn-primary");
+  $("#confirm").removeClass("btn btn-danger");
+  $("#confirm").addClass("btn btn-primary");
 
 
-    $('#pendingTable').attr('hidden', false);
+      $('#pendingTable').attr('hidden', false);
 
-    $('#requestTable').attr('hidden', true);
-    $('#confirmTable').attr('hidden', true);
-    
-    
-    
-    }
-</script>
+      $('#requestTable').attr('hidden', true);
+      $('#confirmTable').attr('hidden', true);
+      
+      
+      
+      }
+  </script>
+
 
 </body>
 

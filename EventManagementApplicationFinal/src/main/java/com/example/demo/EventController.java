@@ -4,20 +4,25 @@ package com.example.demo;
 
 
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.eventmgr.controller.EveeentController;
 import com.eventmgr.model.Event;
 import com.eventmgr.repositaries.EventRepositary;
+import com.google.gson.Gson;
 
 
-
+@RestController
 @Controller
 public class EventController {
 	
@@ -66,41 +71,31 @@ public class EventController {
 		
 	}
 	
-	@RequestMapping("/selectRequestEvents")
-	public List<Event> selctRequestEvent() {
-		
-		System.out.println("Hiii Request");
-		
+	@GetMapping("/selectRequestEvents")
+	public List<Event> selctRequestEvent(HttpServletRequest request) {
 		EveeentController ev= new EveeentController();
-		ev.getRequestedEvent();
 		List<Event> evlst = new ArrayList<Event>();
 		evlst=ev.getRequestedEvent();
-		System.out.println();
 		return evlst;
-		
 	}
 
-	@RequestMapping("/selectPendingEvent")
-	public String getPendingEvent() {
-		
-		System.out.println("Hiii Pending");
+	@GetMapping("/selectPendingEvent")
+	public List<Event> getPendingEvent() {
 		
 		EveeentController ev= new EveeentController();
-		ev.getPendingEvent();
-		
-		return "event.html";
+		List<Event> evlst = new ArrayList<Event>();
+		evlst=ev.getPendingEvent();
+		return evlst;
 		
 	}
 	
 	@RequestMapping("/selectConfirmedEvent")
-	public String getConfirmedEvent() {
-		
-		System.out.println("Hiii Confirmed");
+	public List<Event> getConfirmedEvent() {
 		
 		EveeentController ev= new EveeentController();
-		ev.getConfirmedEvent();
-		
-		return "event.html";
+		List<Event> evlst = new ArrayList<Event>();
+		evlst=ev.getConfirmedEvent();
+		return evlst;
 		
 	}
 }
